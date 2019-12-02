@@ -66,7 +66,7 @@ import torch.utils.model_zoo as model_zoo
 dependencies = ['torch']
 
 
-def PGAN(pretrained=False, *args, **kwargs):
+def PGAN(pretrained=True, *args, **kwargs):
     """
     Progressive growing model
     pretrained (bool): load a pretrained model ?
@@ -99,7 +99,7 @@ def PGAN(pretrained=False, *args, **kwargs):
     return model
 
 
-def DCGAN(pretrained=False, *args, **kwargs):
+def DCGAN(pretrained=True, *args, **kwargs):
     """
     DCGAN basic model
     pretrained (bool): load a pretrained model ? In this case load a model
