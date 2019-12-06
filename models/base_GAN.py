@@ -336,6 +336,7 @@ class BaseGAN():
         inputLatent = torch.randn(
             n_samples, self.config.noiseVectorDim).to(self.device)
 
+        print(self.config.attribKeysOrder)
         if self.config.attribKeysOrder:
 
             if inputLabels is not None:

@@ -131,8 +131,9 @@ class ACGANCriterion:
             inputLatent.append(y)
             targetOut.append(torch.tensor(v).float().view(sizeBatch, 1))
 
-        return torch.cat(targetOut, dim=1), torch.cat(inputLatent, dim=1)
-
+        out = torch.cat(targetOut, dim=1), torch.cat(inputLatent, dim=1)
+        print("value",out,out.shape)
+        return out
     def buildLatentCriterion(self, targetCat):
 
         batchSize = targetCat.size(0)
