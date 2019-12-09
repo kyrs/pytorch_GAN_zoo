@@ -13,7 +13,7 @@ class PaGanSampler():
 		return inputRandom
 	def sampleNormalizedImage(self,noise):
 		## generate normalized image for give noise
-		out = model.test(inputRandom,
+		out = self.model.test(inputRandom,
 	           getAvG=True,
 	    
 	           toCPU=True)
@@ -21,7 +21,7 @@ class PaGanSampler():
 
 	def SampleImage(self,noise):
 		## returen image in range 0-1
-		out = model.test(noise,
+		out = self.model.test(noise,
 	           getAvG=True,
 	    
 	           toCPU=True)
@@ -30,4 +30,5 @@ class PaGanSampler():
 
 if __name__ =="__main__":
 	Obj = PaGanSampler()
-	(Obj.sampleNoise(1))
+	noise = Obj.sampleNoise(1)
+	print(Obj.SampleImage(noise))

@@ -77,8 +77,8 @@ def PGAN(pretrained=True, *args, **kwargs):
     if 'config' not in kwargs or kwargs['config'] is None:
         kwargs['config'] = {}
 
-    model = PGAN(useGPU=kwargs.get('useGPU', True),
-                 storeAVG=True,
+    model = PGAN(useGPU=kwargs.get('useGPU', False),
+                 storeAVG=False,
                  **kwargs['config'])
 
     checkpoint = {"celebAHQ-256": 'https://dl.fbaipublicfiles.com/gan_zoo/PGAN/celebaHQ_s6_i80000-6196db68.pth',
