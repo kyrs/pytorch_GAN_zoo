@@ -22,7 +22,7 @@ class PaGanSampler():
 	           toCPU=True)
 		return out.numpy()	
 
-	def SampleImage(self,noise,npType=False):
+	def SampleImage(self,noise,npType=False,image=False,pathImage=None):
 		## returen image in range 0-1
 		if npType:
 			noise=torch.Tensor(noise)
@@ -32,7 +32,11 @@ class PaGanSampler():
 	           toCPU=True)
 		# grid = torchvision.utils.make_grid(out.clamp(min=-1, max=1), scale_each=True, normalize=True)
 		# return grid.numpy()
-		return out.numpy()
+		if not image:
+			return out.numpy()
+		else :
+			torchvision.utils.save_image(out.clamp(min=-1, max=1),pathImage,scale_each=True, normalize=True)
+			return 
 if __name__ =="__main__":
 	Obj = PaGanSampler()
 	noise = Obj.sampleNoise(16)
